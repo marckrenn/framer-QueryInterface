@@ -28,7 +28,7 @@ This module allows Framer prototypes to **read variables from** and **write vari
 
 ## Getting started
 
-If you haven't already, I strongly recommend reading my [*QueryInterface article on Medium*](https://link) first.
+If you haven't already, I strongly recommend reading my [*QueryInterface article on Medium*](https://medium.com/@marc_krenn/queryinterface-a-query-based-api-for-framer-prototypes-cb99f595d984) first.
 
 | Step  | Instruction                                                                                                                |
 | :---: | :---                                                                                                                       |
