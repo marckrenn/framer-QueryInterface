@@ -24,6 +24,12 @@ This module allows Framer prototypes to **read variables from** and **write vari
 | Loads a profile image from Twitter and saves / loads filter values  | Combined use with *Flow Component*: Link to specific screen PLUS auto-refresh benefits in Framer IDE |
 | Live @ [QI filter](https://framer.cloud/MriJR)                      | Live @ [QI flow](https://framer.cloud/AbGDe)                 |
 
+**Additional Demo Projects**
+
+| Link                                     | Description                                                                              |
+| :---:                                    | :---                                                                                     |
+| [QI device](https://framer.cloud/Txmyt/) | Allows a valid Framer.device to be set via the *query*. All valid device names are listed in the  console. |
+
 <br />
 
 ## Getting started
