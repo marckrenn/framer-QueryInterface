@@ -74,7 +74,7 @@ window.addEventListener 'click', ->
 <br />
 
 ### Contact & Help
-If you need further assistance or want to leave me some feedback, you can reach me via [Twitter](https://twitter.com/marc_krenn), [Facebook](https://FBLINK), [Slack](https://framer-slack-signup.herokuapp.com/), [Medium](https://medium.com/@marc_krenn/queryinterface-a-query-based-api-for-framer-prototypes-cb99f595d984) or here on Github.
+If you need further assistance or want to leave me some feedback, you can reach me via [Twitter](https://twitter.com/marc_krenn), [Facebook](https://www.facebook.com/groups/framerjs/permalink/1111435055650231/), [Slack](https://framer-slack-signup.herokuapp.com/), [Medium](https://medium.com/@marc_krenn/queryinterface-a-query-based-api-for-framer-prototypes-cb99f595d984) or here on Github.
 
 <br />
 
