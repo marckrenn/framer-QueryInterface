@@ -47,6 +47,12 @@ class exports.QueryInterface extends Framer.BaseClass
 			if getParameterByName(@key) and @fetchQuery
 				@value = @_parse(getParameterByName(@key), false)
 
+			else if @saveLocal is false or @loadLocal is false
+
+				if @_val is undefined or @_val is "undefined"
+					@default
+				else @_val
+
 			else if localStorage.getItem("#{window.location.pathname}?#{@key}=") and @loadLocal
 
 				localValue = localStorage.getItem("#{window.location.pathname}?#{@key}=")
@@ -55,8 +61,6 @@ class exports.QueryInterface extends Framer.BaseClass
 					@reset()
 				else
 					val = @_parse(localValue, false)
-
-				if typeof val is typeof @default then @value = val else @value = @default
 
 			else @value = @default
 
@@ -120,7 +124,7 @@ class exports.QueryInterface extends Framer.BaseClass
 
 		_allQueryInterfaces.push(this)
 
-		@value
+		@value = @value
 
 
 	_parse: (val, set) ->
