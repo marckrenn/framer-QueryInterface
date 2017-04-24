@@ -5,8 +5,12 @@ class exports.QueryInterface extends Framer.BaseClass
 	_allQueryInterfaces = [] unless _allQueryInterfaces?
 
 	# based on http://stackoverflow.com/a/5158301 by James
-	getParameterByName = (name) -> 
-		match = RegExp("[?&]#{name}=([^&]*)").exec(window.location.search)
+	getParameterByName = (name) ->
+		if Utils.isInsideFramerCloud()
+			location = window.parent.location.search
+		else
+			location = window.location.search
+		match = RegExp("[?&]#{name}=([^&]*)").exec(location)
 		match and decodeURIComponent(match[1].replace(/\+/g, " "))
 
 
@@ -95,6 +99,7 @@ class exports.QueryInterface extends Framer.BaseClass
 				newUrl = updateQueryString(@key)
 
 				if Utils.isInsideIframe()
+					print newUrl
 					window.parent.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
 				else if Utils.isInsideIframe() is false
 					window.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
