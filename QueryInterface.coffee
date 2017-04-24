@@ -11,7 +11,15 @@ class exports.QueryInterface extends Framer.BaseClass
 
 
 	# based on http://stackoverflow.com/a/11654596 by ellemayo
-	updateQueryString = (key, value, url = window.location.href) ->
+	updateQueryString = (key, value, url) ->
+		
+		unless url?
+
+			if Utils.isInsideFramerCloud()
+				url = window.parent.location.href
+			else
+				url = window.location.href
+
 		key = key.replace("#", "%23")
 		value = value.replace("#", "%23") if typeof value is "string"
 		re = new RegExp("([?&])#{key}=.*?(&|#|$)(.*)", "gi")
@@ -80,9 +88,16 @@ class exports.QueryInterface extends Framer.BaseClass
 				if Utils.isFramerStudio() isnt true or @_forcePublish
 					window.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
 
+				if Utils.isInsideIframe()
+					window.parent.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
+
 			else
 				newUrl = updateQueryString(@key)
-				window.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl) unless Utils.isFramerStudio()
+
+				if Utils.isInsideIframe()
+					window.parent.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
+				else if Utils.isInsideIframe() is false
+					window.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
 
 
 	@define "type", get: -> typeof(@default)
