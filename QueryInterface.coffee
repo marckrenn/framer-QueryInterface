@@ -56,6 +56,11 @@ class exports.QueryInterface extends Framer.BaseClass
 
 		get: ->
 
+			if Utils.isInsideFramerCloud()
+				locationPathName = window.parent.location.pathname
+			else
+				locationPathName = window.location.pathname
+
 			if getParameterByName(@key) and @fetchQuery
 				@value = @_parse(getParameterByName(@key), false)
 
@@ -65,9 +70,9 @@ class exports.QueryInterface extends Framer.BaseClass
 					@default
 				else @_val
 
-			else if localStorage.getItem("#{window.location.pathname}?#{@key}=") and @loadLocal
+			else if localStorage.getItem("#{locationPathName}?#{@key}=") and @loadLocal
 
-				localValue = localStorage.getItem("#{window.location.pathname}?#{@key}=")
+				localValue = localStorage.getItem("#{locationPathName}?#{@key}=")
 
 				if localValue is undefined or localValue is "undefined"
 					@reset()
@@ -99,7 +104,6 @@ class exports.QueryInterface extends Framer.BaseClass
 				newUrl = updateQueryString(@key)
 
 				if Utils.isInsideIframe()
-					print newUrl
 					window.parent.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
 				else if Utils.isInsideIframe() is false
 					window.history.replaceState({path: newUrl}, "#{@key} removed from URI", newUrl)
@@ -112,25 +116,32 @@ class exports.QueryInterface extends Framer.BaseClass
 		get: -> @_default
 		set: (val) ->
 
+			if Utils.isInsideFramerCloud()
+				locationPathName = window.parent.location.pathname
+			else
+				locationPathName = window.parent.location.pathname
+
 			return if typeof val is "function" or @key is undefined
 
 			@_default = val
 
-			if localStorage.getItem("#{window.location.pathname}?#{@key}Default=")
-				savedDefault = localStorage.getItem("#{window.location.pathname}?#{@key}Default=")
+			if localStorage.getItem("#{locationPathName}?#{@key}Default=")
+				savedDefault = localStorage.getItem("#{locationPathName}?#{@key}Default=")
 
 			parsedVal = val.toString()
-			localStorage.setItem("#{window.location.pathname}?#{@key}Default=", parsedVal)
+			localStorage.setItem("#{locationPathName}?#{@key}Default=", parsedVal)
 
-			@reset() if parsedVal isnt savedDefault
+			if parsedVal isnt savedDefault
+				@reset() if Utils.isFramerStudio()
 
-			if localStorage.getItem("#{window.location.pathname}?#{@key}Type=")
-				savedType = localStorage.getItem("#{window.location.pathname}?#{@key}Type=")
+			if localStorage.getItem("#{locationPathName}?#{@key}Type=")
+				savedType = localStorage.getItem("#{locationPathName}?#{@key}Type=")
 
 			newType = typeof val
-			localStorage.setItem("#{window.location.pathname}?#{@key}Type=", newType)
+			localStorage.setItem("#{locationPathName}?#{@key}Type=", newType)
 
-			@reset() if savedType and newType isnt savedType
+			if savedType and newType isnt savedType
+				@reset()
 
 
 	constructor: (@options = {}) ->
