@@ -95,10 +95,10 @@ class exports.QueryInterface extends Framer.BaseClass
 				newUrl = updateQueryString(@key, val)
 
 				if Utils.isFramerStudio() isnt true or @_forcePublish
-					window.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
+					try window.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
 
 				if Utils.isInsideIframe()
-					window.parent.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
+					try window.parent.history.replaceState({path: newUrl}, "#{@key} changed to #{val}", newUrl)
 
 			else
 				newUrl = updateQueryString(@key)
