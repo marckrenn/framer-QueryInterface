@@ -16,13 +16,13 @@ This module allows Framer prototypes to **read variables from** and **write vari
 | :---:                                                               | :---:                                                        |
 | ![png](http://i.imgur.com/tfGXpFl.png)                              | ![png](https://framer.cloud/ebcEA/framer/social-800x600.png) |
 | Basic overview of all supported data types                          | Change the prototype's backgroundColor via the address bar   |
-| Live @ [QI dataTypes](https://framer.cloud/ppeGW)                   | Live @ [QI bgColor](https://framer.cloud/ebcEA)              |
+| Live @ [QI dataTypes](https://framer.cloud/ppeGW/)                  | Live @ [QI bgColor](https://framer.cloud/ebcEA/)             |
 
 | Intermediate                                                        | Intermediate                                                 |
 | :---:                                                               | :---:                                                        |
 | ![png](https://framer.cloud/MriJR/framer/social-800x600.png)        | ![png](https://framer.cloud/AbGDe/framer/social-800x600.png) |
 | Loads a profile image from Twitter and saves / loads filter values  | Combined use with *Flow Component*: Link to specific screen PLUS auto-refresh benefits in Framer IDE |
-| Live @ [QI filter](https://framer.cloud/MriJR)                      | Live @ [QI flow](https://framer.cloud/AbGDe)                 |
+| Live @ [QI filter](https://framer.cloud/MriJR/)                     | Live @ [QI flow](https://framer.cloud/AbGDe/)                |
 
 **Additional Demo Projects**
 
