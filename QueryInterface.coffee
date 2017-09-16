@@ -20,7 +20,7 @@ class exports.QueryInterface extends Framer.BaseClass
 		unless url?
 
 			if Utils.isInsideFramerCloud()
-				url = "#{window.parent.location.href}/"
+				url = window.parent.location.href
 			else
 				url = window.location.href
 
@@ -43,7 +43,7 @@ class exports.QueryInterface extends Framer.BaseClass
 		else
 
 			if typeof value isnt "undefined" and value isnt null
-				separator = if url.indexOf("?") isnt -1 then "&" else "?"
+				separator = if url.indexOf("?") isnt -1 then "/&" else "?"
 				hash = url.split("#")
 				url = "#{hash[0]}#{separator}#{key}=#{value}"
 				url += "##{hash[1]}" if typeof hash[1] isnt "undefined" and hash[1] isnt null
