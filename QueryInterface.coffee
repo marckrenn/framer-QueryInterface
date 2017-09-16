@@ -20,7 +20,7 @@ class exports.QueryInterface extends Framer.BaseClass
 		unless url?
 
 			if Utils.isInsideFramerCloud()
-				url = window.parent.location.href
+				url = "#{window.parent.location.href}/"
 			else
 				url = window.location.href
 
