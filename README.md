@@ -36,12 +36,6 @@ This module allows Framer prototypes to **read variables from** and **write vari
 
 If you haven't already, I strongly recommend reading my [*QueryInterface article on Medium*](https://medium.com/@marc_krenn/queryinterface-a-query-based-api-for-framer-prototypes-cb99f595d984) first.
 
-<a href='https://open.framermodules.com/QueryInterface'>
-    <img alt='Install with Framer Modules'
-    src='https://www.framermodules.com/assets/badge@2x.png' width='160' height='40' /></a>
-
-<strong>OR</strong>
-
 | Step  | Instruction                                                                                                                |
 | :---: | :---                                                                                                                       |
 | **1** | Download the [QueryInterface module](https://github.com/marckrenn/framer-QueryInterface/archive/master.zip) and unzip the downloaded archive |
